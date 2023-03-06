@@ -1,0 +1,12 @@
+{%extends "base.html"%}
+
+{%block title%}HOME{%endblock%}
+
+{%block content%}
+    <div align = 'center'>
+        HOME <br>
+        {%if name == 'User'%}
+        Welcome {{name}}
+        {%endif%}
+    </div>
+{%endblock%}

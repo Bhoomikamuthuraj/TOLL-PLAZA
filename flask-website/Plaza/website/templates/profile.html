@@ -1,0 +1,23 @@
+{%extends "base.html"%}
+
+{%block title%}HOME{%endblock%}
+
+{%block content%}
+    <div><div class="d-grid gap-2 col-4 mx-auto" align = 'center'>
+        <h1 class='mt-3 mb-3'>PROFILE</h1>
+        <div align='center'>
+            <img src="https://i.pinimg.com/originals/0c/3b/3a/0c3b3adb1a7530892e55ef36d3be6cb8.png" alt="Couldn't load image" width = 150px, height = 125px>
+        </div>
+        <h5 align='left'>Name: {{name}}</h5>
+        <h5 align='left'>Driver License ID:</h5>
+        <h5 align='left'>Vehicle no.:</h5>
+        <h5 align='left'>Vehicle type:</h5>
+        <h5 align='left'>City:</h5>
+        <h5 align='left'>State:</h5>
+        <h5 align='left'>Phone no.:</h5>
+        <h5 align='left'>Email:</h5>
+        <h5 align='left'>Password:</h5>
+        <br>
+        <a class="btn btn-dark border border-dark" href="/logout" role="button">LOGOUT</a>
+    </div></div>
+{%endblock%}
