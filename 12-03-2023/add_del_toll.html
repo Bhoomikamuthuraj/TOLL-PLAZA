@@ -51,7 +51,7 @@
 
                         <div class="modal-body">
                     
-                            <form action="{{ url_for('insert')}}" method="POST">
+                            <form action="add_toll" method="POST">
                                 <div class="form-group">
                                     <label>Tollbooth Name</label>
                                     <input type="text" name="add_tollbooth_name" class="form-control" id="exampleFormControlInput1" placeholder="Enter Tollbooth Name">
@@ -119,7 +119,7 @@
                             <div class="modal-content">
        
                                 <div class="modal-header">
-                                    <h5 class="modal-title text-dark" style="align-content: center;">Edit Tollbooth Details</h5>    
+                                    <h5 class="modal-title text-dark" style="align-content: center;">Tollbooth Details</h5>    
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                     </button>
@@ -128,31 +128,25 @@
     
                                 <div class="modal-body">
                         
-                                    <form action="{{ url_for('update')}}" method="POST">
                                         <input type="hidden" name="id" value="{{item.0}}">
-                                        <div class="form-group">
-                                            <label>TollBooth Name</label>
-                                            <input value="{{item.0}}" type="text" name="name" class="form-control" id="exampleFormControlInput1" placeholder="Enter Full Name">
+                                        <div class="mb-3">
+                                            TollBooth Name: {{item.0}}
                                         </div>
 
-                                        <div class="form-group">
-                                            <label>TollBooth Route</label>
-                                            <input value="{{item.1}}" type="text" name="route" class="form-control" id="exampleFormControlInput1" placeholder="Enter Full Name">
+                                        <div class="mb-3">
+                                            TollBooth Route: {{item.1}}
                                         </div>
     
-                                        <div class="form-group">
-                                            <label>Tollbooth Mail-ID</label>
-                                            <input value="{{item.2}}" type="text" name="mail-id" class="form-control" id="exampleFormControlInput1" placeholder="Enter Email">
+                                        <div class="mb-3">
+                                            Tollbooth Mail-ID: {{item.2}}
                                         </div>
     
-                                        <div class="form-group">
-                                            <label>Tollbooth Password</label>
-                                            <input value="{{item.3}}" name="view_tollbooth_password" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter Phone Number">
+                                        <div class="mb-3">
+                                            Tollbooth Password: {{item.3}}
                                         </div>
     
-                                        <button type="submit" class="btn btn-dark mb-2">Update</button>
+                                        <button type="submit" class="btn btn-dark mb-2">OK</button>
                          
-                                    </form>
     
                                 </div>
                             </div>
@@ -174,8 +168,7 @@
 
         </div>
     </div>
-
- <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.2.1.min.js') }}"></script>    
+  
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>    
