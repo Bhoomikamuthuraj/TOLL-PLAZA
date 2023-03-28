@@ -1,0 +1,45 @@
+{%extends "base.html"%}
+
+{%block title%}PLAZA PLUS | PAYMENT{%endblock%}
+
+{%block content%}
+    <h3>{{ USER }}</h3>
+    <h3>{{ ID }}</h3>
+    <h3>{{ PH_NO }}</h3>
+    <h3>{{ TOLL }}</h3>
+    <h3>{{ AMOUNT/100 }}</h3>
+    <h3>{{ NUMBER }}</h3>
+
+    <div>
+        <button class="btn btn-dark btn-lg border border-dark btn-lg d-grid gap-2 col-4 mx-auto" id="rzp-button1">Confirm payment</button>
+        <form action="success" method="post">
+        <script>
+        var options = {
+            "key": "rzp_test_cXFVB8FzMYf1gW", // Enter the Key ID generated from the Dashboard
+            "amount": "{{ TOLL_AMOUNT }}", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+            "currency": "INR",
+            "name": "Plaza Plus Private Limited", //your business name
+            "description": "Test Transaction",
+            "image": "https://example.com/your_logo",
+            "order_id": "{{ payment['id'] }}", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+            // "callback_url": "https://eneqd3r9zrjok.x.pipedream.net/",
+            "callback_url":"/success",
+            "prefill": {
+                "name": "{{ NAME }}", //your customer's name
+                "email": "{{ ID }}",
+                "contact": "{{ PHONE_NO }}"
+            },
+            "theme": {
+                "color": "#3399cc"
+            }
+        };
+        var rzp1 = new Razorpay(options);
+        document.getElementById('rzp-button1').onclick = function(e){
+            rzp1.open();
+            e.preventDefault();
+        }
+        </script>
+        </form>
+    </div>
+
+{%endblock%}

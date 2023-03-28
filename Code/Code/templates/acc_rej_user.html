@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PLAZA PLUS | ACCEPT/REJECT USERS</title>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <style>
+        body{
+            background-image: none;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container-fluid">
+    <h1 class="text-center alert alert-dark">USERS DETAILS</h1>
+    <div class="row2">
+        <div class="col-sm-2"></div>
+
+            <!-- content goes here -->
+        <div class="col-sm-12">
+
+          {%with messages = get_flashed_messages()%}
+          {%if messages%}
+          {% for message in messages %}
+          <div class="alert alert-dark alert-dismissable" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            {{message}}
+          </div>
+          {%endfor%}
+          {%endif%}
+          {%endwith%}
+
+        </div>
+
+
+        <!-- End of Enter New Tollbooth Modal -->
+
+
+
+
+        <table class="table border-dark table-bordered table-hover col-8" align='center'>
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Vehicle Number</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in DATA %}
+                    <tr>
+                        <td>{{item.0}}</td>
+                        <td>{{item.1}}</td>
+                        <td>
+                            <a href="" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#modaledit{{item.0}}">View</a>
+                        </td>
+                    </tr>
+
+
+                    <!-- Enter New Student Modal -->
+
+                    <div id="modaledit{{item.0}}" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+       
+                                <div class="modal-header">
+                                    <h5 class="modal-title text-dark" style="align-content: center;">ACCEPT/REJECT USERS</h5>    
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                      
+    
+                                <div class="modal-body">
+                      
+                                        <input type="hidden" name="id" value="{{item.0}}">
+                                        <div class="mb-3">
+                                            Name: {{item.0}}
+                                        </div>
+
+                                        <div class="mb-3">
+                                            Vehicle Number: {{item.1}}
+                                        </div>
+    
+                                        <div class="mb-3">
+                                            User ID: {{item.2}}
+                                        </div>
+    
+                                        <div class="mb-3">
+                                            Vehicle Type: {{item.3}}
+                                        </div>
+    
+                                        <a type="submit" class="btn btn-dark mb-2" href="/update_accept/{{item[1]}}">Accept</a>
+                                        <a type="submit" class="btn btn-dark mb-2" href="/update_reject/{{item[1]}}" onclick="return confirm('confirm Reject ?')">Reject</a>
+                        
+    
+                                </div>
+                            </div>
+                        </div>
+    
+                    </div>
+    
+    
+                    <!-- End of Edit Student Modal -->
+                {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+            <!-- Content ends here-->
+
+
+    <div class="col-sm-2"></div>
+
+        </div>
+    </div>
+ 
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>    
+</body>
+</html>
