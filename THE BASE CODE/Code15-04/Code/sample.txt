@@ -1,0 +1,46 @@
+#Binarization-adaptive threshold technique
+binary_img = grayscale_img.copy()
+cv2.imwrite("C:/Code/plate_images/gray_scale/gray_img1.jpg", grayscale_img)
+binary_img = cv2.imread("C:/Code/plate_images/gray_scale/gray_img1.jpg")
+gray = cv2.cvtColor(binary_img, cv2.COLOR_BGR2GRAY)
+threshold_img =cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 11, 2)
+cv2.imwrite("C:/Code/threshold_image/thres_img1.jpg", threshold_img)
+gray2 = cv2.cvtColor(threshold_img, cv2.COLOR_BGR2GRAY)
+
+
+
+#BLUR
+img_blur = cv2.medianBlur(img_roi, 5)
+
+
+# Apply Gaussian blur to reduce noise
+blur = cv2.GaussianBlur(img_gray, (5,5), 0)
+
+#Apply Canny edge detection
+edges = cv2.Canny(blur, 100, 200)
+
+
+
+
+
+######################
+# Apply Gaussian blur to reduce noise
+            blur = cv2.GaussianBlur(grayscale_img, (5,5), 0)
+
+            # perform otsu thresh (using binary inverse since opencv contours work better with white text)
+            ret, thresh = cv2.threshold(blur, 0, 255, cv2.THRESH_OTSU | cv2.THRESH_BINARY_INV)
+
+            # apply dilation 
+            rect_kern = cv2.getStructuringElement(cv2.MORPH_RECT, (3,3))
+            dilation = cv2.dilate(thresh, rect_kern, iterations = 1)
+
+            # find contours
+            try:
+                contours, hierarchy = cv2.findContours(dilation, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+            except:
+                ret_img, contours, hierarchy = cv2.findContours(dilation, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+            sorted_contours = sorted(contours, key=lambda ctr: cv2.boundingRect(ctr)[0])
+
+            img_roi = thresh[y-5:y+h+5, x-5:x+w+5]
+            img_roi = cv2.bitwise_not(img_roi)
+            img_roi = cv2.medianBlur(img_roi, 5)

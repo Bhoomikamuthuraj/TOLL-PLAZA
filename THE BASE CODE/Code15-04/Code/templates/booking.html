@@ -1,0 +1,29 @@
+{%extends "base.html"%}
+
+{%block title%}PLAZA PLUS | PROFILE{%endblock%}
+
+{%block content%}
+<section id="hero" class ='min-vh-100 d-flex align-items-center '>
+    <br>
+    <br>
+    <div class="container container-background-light" align='center'>
+        <div class="row">
+            <div class="col">
+                <div align = 'left' class = 'mx-3'>
+                    <!-- write code here -->
+                    {% for item in DATA %}
+                        {{ item[0] }}
+                        {{ item[1] }}
+                        {{ item[2] }}
+                        {{ item[3] }}
+                    {% endfor %}
+                    <a href="/user"><button class="btn btn-dark btn-lg border border-dark btn-lg d-grid gap-2 col-8 mx-auto">BACK TO HOME</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+{%endblock%}

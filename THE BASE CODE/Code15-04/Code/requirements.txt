@@ -1,0 +1,9 @@
+Flask
+opencv-python
+pytesseract 
+mysql-connector-python
+razorpay
+Flask-Login
+Flask-email
+
+
