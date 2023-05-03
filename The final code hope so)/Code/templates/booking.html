@@ -1,0 +1,66 @@
+{%extends "base.html"%}
+
+{%block title%}PLAZA PLUS | PROFILE{%endblock%}
+
+{%block content%}
+<!--<section id="hero" class ='min-vh-100 d-flex align-items-center '>
+    <br>
+    <br>
+    <div class="container container-background-light" align='center'>
+        <div class="row">
+            <div class="col">
+                <div align = 'left' class = 'mx-3'>
+                    <table>
+                    <thead>
+                        <tr>
+                            <th scope="col" class="text-white" style="background-color: #292c36; border:1pt solid black;">Date</th>
+                            <th scope="col" class="text-white" style="background-color: #292c36; border:1pt solid black;">Toll booth name</th>
+                            <th scope="col" class="text-white" style="background-color: #292c36; border:1pt solid black;">Amount</th>
+                            <th scope="col" class="text-white" style="background-color: #292c36; border:1pt solid black;">Payment</th>
+                        </tr>
+                    </thead>
+                    <tbody class="border-dark-2 table-hover">
+                        {% for item in DATA %}
+                        <tr>
+                            <td class = "border-dark">{{ item[0] }}</td>
+                            <td class = "border-dark">{{ item[1] }}</td>
+                            <td class = "border-dark">{{ item[2] }}</td>
+                            <td class = "border-dark">{{ item[3] }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    </table>
+                    <a href="/user"><button class="btn btn-dark btn-lg border border-dark btn-lg d-grid gap-2 col-8 mx-auto">BACK TO HOME</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>-->
+<section id="hero" class ='min-vh-100 d-flex'>
+<div class="container container-background-light">
+<table class="table bg-white table-bordered border-dark rounded shadow-sm m-3 p-3">
+    <thead>
+        <tr>
+            <th scope="col" class="text-white" style="background-color: #292c36; border:1pt solid black;">Date</th>
+            <th scope="col" class="text-white" style="background-color: #292c36; border:1pt solid black;">Toll booth name</th>
+            <th scope="col" class="text-white" style="background-color: #292c36; border:1pt solid black;">Amount</th>
+            <th scope="col" class="text-white" style="background-color: #292c36; border:1pt solid black;">Payment</th>
+        </tr>
+    </thead>
+    <tbody class="border-dark-2 table-hover">
+        {% for item in DATA %}
+        <tr>
+            <td class="text-black" style="background-color: white; border:1pt solid black;">{{ item[0] }}</td>
+            <td class="text-black text-uppercase" style="background-color: white; border:1pt solid black;">{{ item[1] }}</td>
+            <td class="text-black" style="background-color: white; border:1pt solid black;">{{ item[2] }}</td>
+            <td class="text-black text-uppercase" style="background-color: white; border:1pt solid black;">{{ item[3] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+    <a href="/user"><button class="text-white btn btn btn-lg border border-dark btn-lg d-grid gap-2 col-4 mx-auto" style='background-color:black;'>BACK TO HOME</button></a>
+</div>
+</section>
+
+{%endblock%}
