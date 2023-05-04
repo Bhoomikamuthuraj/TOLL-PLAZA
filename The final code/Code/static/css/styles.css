@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Anuphan:wght@300;400;500;700&display=swap');
+
+/* CUSTOM VARIABLES */
+:root{
+    --c-dark: #212529;
+    --c-brand: #17202A;
+    --c-brand-light: #34495E;
+    --c-brand-rgb: 78, 87, 212;
+    --c-body: #1c1b1b;
+    --font-base: 'Anuphan', sans-serif;
+    --box-shadow: 0px 15px 25px rgba(0,0,0,0.08);
+    --transition: all 0.5s ease; 
+}
+
+body{
+    background-image: linear-gradient(#00000077,#0000007d), url(../images/back_img.jpg);
+    background-position: 0% 60%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    border-radius: 10px 0 0 10px;
+    font-family: var(--font-base);
+    line-height: 1.7;
+    color: var(--c-body);
+}
+
+.box{
+    margin-left: 500px;
+    margin-top: 150px;
+    width: 600px;
+    height: 400px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 5px 5px 10px 1px rgba(0,0,0,0.2);
+}
+
+h1,h2,h3,h4,h5,h6,
+.h1, .h2, .h3, .h4,.h5, .h6{
+    font-weight: 600;
+}
+
+.wrapper{
+    padding: 0 20px 0 20px;
+}
+
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+}
+.row{
+    width: 900px;
+    height: 550px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 5px 5px 10px 1px rgba(0,0,0,0.2);
+}
+.side-image{
+    background-image: url('../images/index_side.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    border-radius: 10px 0 0 10px;
+    border-right: 1pt solid gainsboro;
+}
+.text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    transform: translate( -50%, -50%);
+}
+.text h1{
+    color: black;
+    font-size: large;
+    font-weight: 500;
+    font-style: bold;
+}
+.right{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.input-field{
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+
+}
+.input-field header{
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 45px;
+}
