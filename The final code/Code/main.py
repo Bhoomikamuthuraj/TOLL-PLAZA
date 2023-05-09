@@ -18,7 +18,8 @@ pytesseract.pytesseract.tesseract_cmd ='C:/Program Files/Tesseract-OCR/tesseract
 mydb=mysql.connector.connect(
 host="localhost",
 user="root",
-password="Bhoomika@2002",
+#PASSWORD
+password="mysqlpassword",
 database="final_project"
 )
 
